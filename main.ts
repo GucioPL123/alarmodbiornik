@@ -8,7 +8,7 @@ radio.onReceivedNumber(function (receivedNumber) {
         `)
     basic.pause(30)
     basic.clearScreen()
-    if (zaz == 1 && receivedNumber == 1) {
+    if (locked == 1 && receivedNumber == 1) {
         tone()
         basic.showIcon(IconNames.No)
         basic.showLeds(`
@@ -28,18 +28,15 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })
 function tone () {
-    music.play(music.tonePlayable(494, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
+    music.play(music.tonePlayable(494, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
     basic.pause(10)
     music.play(music.tonePlayable(587, music.beat(BeatFraction.Half)), music.PlaybackMode.UntilDone)
 }
 input.onButtonPressed(Button.A, function () {
-    zaz = 1
+    locked = 1
 })
 input.onButtonPressed(Button.B, function () {
-    zaz = 0
+    locked = 0
 })
-let zaz = 0
-zaz = 0
-basic.forever(function () {
-	
-})
+let locked = 0
+locked = 0
